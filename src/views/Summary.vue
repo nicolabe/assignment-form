@@ -40,4 +40,8 @@ export default {
   .divider {
     border-top: 1px solid #ccc;
   }
+
+  p {
+    font-weight: 300;
+  }
 </style>
