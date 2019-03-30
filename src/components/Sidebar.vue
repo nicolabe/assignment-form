@@ -6,10 +6,10 @@
           <router-link to="/">Register</router-link>
         </li>
         <li>
-          <router-link to="/page2">Details</router-link>
+          <router-link to="/details">Details</router-link>
         </li>
         <li>
-          <router-link to="/page3">Activities</router-link>
+          <router-link to="/activities">Activities</router-link>
         </li>
       </ul>
     </nav>
