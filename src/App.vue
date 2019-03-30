@@ -4,18 +4,38 @@
       <Sidebar />
     </div>
     <div id="content">
-      <router-view/>
+      <Alert
+        v-if="notificationMessage"
+        v-bind:message="notificationMessage"
+        v-on:closeAlert="closeAlert"
+      />
+      <router-view v-on:notification="onNotification" />
     </div>
   </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Sidebar.vue'
+import Alert from '@/components/Alert.vue'
 
 export default {
   name: "App",
+  data: function() {
+    return {
+      notificationMessage: ""
+    }
+  },
   components: {
-    Sidebar
+    Sidebar,
+    Alert
+  },
+  methods: {
+    onNotification(message) {
+      this.notificationMessage = message;
+    },
+    closeAlert() {
+      this.notificationMessage = "";
+    }
   }
 }
 </script>
@@ -46,7 +66,7 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
   text-transform: uppercase;
   font-weight: 300;
   margin: 0;

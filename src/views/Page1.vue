@@ -1,15 +1,24 @@
 <template>
-  <div class="home">
-    <div>
-      This is the main content
-    </div>
-  </div>
+  <main>
+    <h1>Page 1</h1>
+    <UserForm v-on:notification="notification" />
+  </main>
 </template>
 
 <script>
+import UserForm from '../components/UserForm.vue'
+
 export default {
-  name: 'page1',
+  name: 'Page1',
   components: {
+    UserForm
+  },
+  methods: {
+    notification(message) {
+      console.log("notify")
+      console.log(message);
+      this.$emit("notification", message);
+    }
   }
 }
 </script>

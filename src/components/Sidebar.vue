@@ -48,6 +48,14 @@ export default {
 
   a {
     text-decoration: none;
+    color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  a:hover {
+    color: #333;
   }
 
   li:hover {
