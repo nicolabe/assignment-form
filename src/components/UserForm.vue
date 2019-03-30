@@ -12,6 +12,51 @@
       <label for="email">Email</label>
       <input type="email" id="email" v-model="email" />
     </div>
+    <div class="form-divide" v-if="extended">
+      <div class="form-item">
+        <label for="address">Address</label>
+        <input type="text" id="address" v-model="address" maxlength="50" />
+      </div>
+      <div class="form-radio">
+        <div class="form-radio-container">
+          <input type="radio" id="male" value="Male" v-model="gender">
+          <label for="male">Male</label>
+        </div>
+        <div class="form-radio-container">
+          <input type="radio" id="female" value="Female" v-model="gender">
+          <label for="female">Female</label>
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="purpose">Purpose</label>
+        <select v-model="purpose" id="purpose">
+          <option disabled value="">Select one</option>
+          <option>Business</option>
+          <option>Pleasure</option>
+          <option>Both</option>
+        </select>
+      </div>
+
+      <div class="form-checkbox">
+        <div class="form-checkbox-container">
+          <input type="checkbox" id="football" value="Football" v-model="activities">
+          <label for="football">Football</label>
+        </div>
+        <div class="form-checkbox-container">
+          <input type="checkbox" id="basketball" value="Basketball" v-model="activities">
+          <label for="basketball">Basketball</label>
+        </div>
+        <div class="form-checkbox-container">
+          <input type="checkbox" id="tennis" value="Tennis" v-model="activities">
+          <label for="tennis">Tennis</label>
+          </div>
+        <div class="form-checkbox-container">
+          <input type="checkbox" id="esports" value="E-sports" v-model="activities">
+          <label for="esports">E-sports</label>
+        </div>
+      </div>
+
+    </div>
     <div class="form-item">
       <button type="submit">Save</button>
     </div>
@@ -22,13 +67,18 @@
 export default {
   name: "UserForm",
   props: {
-    userData: Object
+    userData: Object,
+    extended: Boolean
   },
   data: function() {
     return {
       firstName: "",
       lastName: "",
-      email: ""
+      email: "",
+      address: "",
+      gender: "",
+      purpose: "",
+      activities: []
     }
   },
   methods: {
@@ -54,11 +104,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   form {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 450px;
   }
 
   label {
@@ -72,10 +122,33 @@ export default {
     padding: 12px 0;
   }
 
+  .form-radio {
+    display: flex;
+  }
+
+  .form-radio-container:nth-child(1) {
+    padding-right: 16px;
+  }
+
+  .form-checkbox {
+    display: flex;
+  }
+
+  .form-checkbox-container {
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+  }
+
   button {
     align-items: flex-end;
     width: 70px;
     cursor: pointer;
+  }
+
+  .form-divide {
+    border-top: 1px solid #ccc;
+    margin-top: 16px;
   }
 </style>
 

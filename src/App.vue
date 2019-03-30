@@ -51,7 +51,7 @@ body {
   font-family: Roboto;
   display: flex;
   height: 100%;
-  width: 900px;
+  width: 1000px;
 }
 
 #sidebar {
@@ -62,7 +62,7 @@ body {
 }
 
 #content {
-  flex: 4;
+  flex: 5;
   padding: 32px;
 }
 

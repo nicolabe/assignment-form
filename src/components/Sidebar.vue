@@ -30,6 +30,8 @@ export default {
 <style scoped>
   aside {
     height: 100%;
+    position: fixed;
+    width: 160px;
   }
   nav {
     text-transform: uppercase;

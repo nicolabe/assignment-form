@@ -5,6 +5,7 @@
       <UserForm
         v-on:notification="notification"
         v-bind:userData="userData"
+        v-bind:extended="true"
       />
     </div>
   </main>
