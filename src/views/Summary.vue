@@ -29,7 +29,6 @@ export default {
       this.userData = JSON.parse(userData)
     }
     const userDetails = await localStorage.getItem("assignmentFormUserDetails")
-    console.log(userDetails)
     if (userDetails) {
       this.userDetails = JSON.parse(userDetails)
     }
