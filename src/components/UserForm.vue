@@ -89,6 +89,12 @@ export default {
           this.$emit("notification", {message: "Valiation failed: " + validationMessage, error: true})
           return false;
         }
+        localStorage.assignemtFormUserDetails = JSON.stringify({
+          address: this.address,
+          gender: this.gender,
+          purpose: this.purpose,
+          activities: this.activities
+        })
       }
       localStorage.assignmentFormUser = JSON.stringify({
         firstName: this.firstName,
@@ -98,6 +104,9 @@ export default {
       this.$emit("notification", {message: "User succesfully created", error: false});
       if (this.$route.name === "register") {
         this.$router.push({name: "details"})
+      }
+      if (this.$route.name === "details") {
+        this.$router.push({name: "summary"})
       }
     },
     validateForm() {

@@ -46,7 +46,7 @@ export default {
 <style>
 body {
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 #app {
@@ -64,7 +64,7 @@ body {
 }
 
 #content {
-  flex: 5;
+  flex: 4;
   padding: 32px;
 }
 

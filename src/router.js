@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Register from './views/Register.vue'
 import Details from './views/Details.vue'
-import Activities from './views/Activities.vue'
+import Summary from './views/Summary.vue'
 
 Vue.use(Router)
 
@@ -19,9 +19,9 @@ export default new Router({
       component: Details
     },
     {
-      path: '/activities',
-      name: 'activities',
-      component: Activities
+      path: '/summary',
+      name: 'summary',
+      component: Summary
     }
   ]
 })

@@ -8,8 +8,8 @@
         <li v-bind:class="{active: 'details' === isActive}">
           <router-link to="/details">Details</router-link>
         </li>
-        <li v-bind:class="{active: 'activities' === isActive}">
-          <router-link to="/activities">Activities</router-link>
+        <li v-bind:class="{active: 'summary' === isActive}">
+          <router-link to="/summary">Summary</router-link>
         </li>
       </ul>
     </nav>
@@ -31,7 +31,7 @@ export default {
   aside {
     height: 100%;
     position: fixed;
-    width: 160px;
+    width: 180px;
   }
   nav {
     text-transform: uppercase;
