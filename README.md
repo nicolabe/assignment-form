@@ -15,15 +15,7 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Start backend express server
 ```
-npm run test
+node server.js
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
