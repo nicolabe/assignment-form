@@ -21,6 +21,9 @@
 <script>
 export default {
   name: "UserForm",
+  props: {
+    userData: Object
+  },
   data: function() {
     return {
       firstName: "",
@@ -36,6 +39,13 @@ export default {
         email: this.email
       });
       this.$emit("notification", "User succesfully created");
+    }
+  },
+  watch: {
+    userData: function(newVal) {
+      this.firstName = newVal.firstName;
+      this.lastName = newVal.lastName;
+      this.email = newVal.email;
     }
   }
 }

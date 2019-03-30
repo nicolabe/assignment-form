@@ -1,17 +1,19 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <router-link to="/">Register</router-link>
-      </li>
-      <li>
-        <router-link to="/page2">Details</router-link>
-      </li>
-      <li>
-        <router-link to="/page3">Activities</router-link>
-      </li>
-    </ul>
-  </nav>
+  <aside>
+    <nav>
+      <ul>
+        <li>
+          <router-link to="/">Register</router-link>
+        </li>
+        <li>
+          <router-link to="/page2">Details</router-link>
+        </li>
+        <li>
+          <router-link to="/page3">Activities</router-link>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 </template>
 
 <script>
@@ -21,6 +23,9 @@ export default {
 </script>
 
 <style scoped>
+  aside {
+    height: 100%;
+  }
   nav {
     text-transform: uppercase;
     font-size: 24px;
