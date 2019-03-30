@@ -1,7 +1,9 @@
 <template>
   <main>
-    <h1>Page 1</h1>
-    <UserForm v-on:notification="notification" />
+    <h1>User registration</h1>
+    <div>
+      <UserForm v-on:notification="notification" />
+    </div>
   </main>
 </template>
 
@@ -9,14 +11,12 @@
 import UserForm from '../components/UserForm.vue'
 
 export default {
-  name: 'Page1',
+  name: 'Register',
   components: {
     UserForm
   },
   methods: {
     notification(message) {
-      console.log("notify")
-      console.log(message);
       this.$emit("notification", message);
     }
   }

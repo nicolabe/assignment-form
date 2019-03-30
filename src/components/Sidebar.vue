@@ -2,13 +2,13 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/">Page 1</router-link>
+        <router-link to="/">Register</router-link>
       </li>
       <li>
-        <router-link to="/page2">Page 2</router-link>
+        <router-link to="/page2">Details</router-link>
       </li>
       <li>
-        <router-link to="/page3">Page 3</router-link>
+        <router-link to="/page3">Activities</router-link>
       </li>
     </ul>
   </nav>
