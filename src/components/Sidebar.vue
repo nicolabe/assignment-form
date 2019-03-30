@@ -2,13 +2,13 @@
   <aside>
     <nav>
       <ul>
-        <li>
+        <li v-bind:class="{active: 'register' === isActive}">
           <router-link to="/">Register</router-link>
         </li>
-        <li>
+        <li v-bind:class="{active: 'details' === isActive}">
           <router-link to="/details">Details</router-link>
         </li>
-        <li>
+        <li v-bind:class="{active: 'activities' === isActive}">
           <router-link to="/activities">Activities</router-link>
         </li>
       </ul>
@@ -18,7 +18,12 @@
 
 <script>
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  computed: {
+    isActive() {
+      return this.$route.name
+    }
+  }
 }
 </script>
 
@@ -65,5 +70,9 @@ export default {
 
   li:hover {
     background-color: #ADD8E6;
+  }
+
+  .active {
+    background: #ADD8E6;
   }
 </style>

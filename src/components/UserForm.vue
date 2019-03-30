@@ -39,6 +39,9 @@ export default {
         email: this.email
       });
       this.$emit("notification", "User succesfully created");
+      if (this.$route.name === "register") {
+        this.$router.push({name: "details"})
+      }
     }
   },
   watch: {

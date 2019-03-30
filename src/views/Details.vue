@@ -18,8 +18,21 @@ export default {
   components: {
     UserForm
   },
-  created() {
-    console.log("mounted");
+  data: function() {
+    return {
+      userData: {}
+    }
+  },
+  methods: {
+    notification(message) {
+      this.$emit("notification", message);
+    }
+  },
+  async created() {
+    const userData = await localStorage.getItem("assignmentFormUser")
+    if (userData) {
+      this.userData = JSON.parse(userData)
+    }
   }
 }
 </script>
