@@ -5,11 +5,13 @@
     </div>
     <div id="content">
       <Alert
-        v-if="notificationMessage"
-        v-bind:message="notificationMessage"
+        v-if="notification.message"
+        v-bind:notification="notification"
         v-on:closeAlert="closeAlert"
       />
-      <router-view v-on:notification="onNotification" />
+      <router-view
+        v-on:notification="onNotification"
+      />
     </div>
   </div>
 </template>
@@ -22,7 +24,7 @@ export default {
   name: "App",
   data: function() {
     return {
-      notificationMessage: ""
+      notification: {}
     }
   },
   components: {
@@ -30,11 +32,11 @@ export default {
     Alert
   },
   methods: {
-    onNotification(message) {
-      this.notificationMessage = message;
+    onNotification(notification) {
+      this.notification = notification;
     },
     closeAlert() {
-      this.notificationMessage = "";
+      this.notification = {};
     }
   }
 }

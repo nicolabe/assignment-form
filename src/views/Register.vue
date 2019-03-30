@@ -28,8 +28,8 @@ export default {
     }
   },
   methods: {
-    notification(message) {
-      this.$emit("notification", message);
+    notification(notification) {
+      this.$emit("notification", notification);
     },
     loadUserData() {
       axios.get("/api/user")

@@ -83,15 +83,34 @@ export default {
   },
   methods: {
     onSubmit() {
+      if (this.extended) {
+        const validationMessage = this.validateForm()
+        if (validationMessage) {
+          this.$emit("notification", {message: "Valiation failed: " + validationMessage, error: true})
+          return false;
+        }
+      }
       localStorage.assignmentFormUser = JSON.stringify({
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email
       });
-      this.$emit("notification", "User succesfully created");
+      this.$emit("notification", {message: "User succesfully created", error: false});
       if (this.$route.name === "register") {
         this.$router.push({name: "details"})
       }
+    },
+    validateForm() {
+      if (this.address.length > 50) {
+        return "Address cannot be more than 50 characters"
+      }
+      if (!this.purpose) {
+        return "Purpose must be selected"
+      }
+      if (this.activities.length === 0 || this.activities.length > 2) {
+        return "You have to select atleast one activity, but no more than two"
+      }
+      return ""
     }
   },
   watch: {
