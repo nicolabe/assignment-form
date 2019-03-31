@@ -136,6 +136,12 @@ export default {
         this.firstName = newVal.firstName;
         this.lastName = newVal.lastName;
         this.email = newVal.email;
+        if (this.extended) {
+          this.address = newVal.details.address;
+          this.gender = newVal.details.gender;
+          this.purpose = newVal.details.purpose;
+          this.activities = newVal.details.activities;
+        }
       }
     }
   }
