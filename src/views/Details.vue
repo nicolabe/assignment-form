@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import UserForm from '../components/UserForm.vue'
+import UserForm from "../components/UserForm.vue"
 import { getLocalStorageItem } from "../utils/localStorage"
 
 export default {

@@ -6,32 +6,30 @@
       <p>Last name: {{userData.lastName}}</p>
       <p>Email: {{userData.email}}</p>
       <div class="divider" />
-      <p>Address: {{userDetails.address}}</p>
-      <p>Gender: {{userDetails.gender}}</p>
-      <p>Purpose: {{userDetails.purpose}}</p>
-      <p v-if="userDetails.activities">Activities: {{userDetails.activities.join(", ")}}</p>
+      <div v-if="userData.details">
+        <p>Address: {{userData.details.address}}</p>
+        <p>Gender: {{userData.details.gender}}</p>
+        <p>Purpose: {{userData.details.purpose}}</p>
+        <p v-if="userData.details.activities">
+          Activities: {{userData.details.activities.join(", ")}}
+        </p>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import { getLocalStorageItem } from "../utils/localStorage"
+
 export default {
   name: 'Summary',
   data: function() {
     return {
-      userData: {},
-      userDetails: {}
+      userData: {}
     }
   },
   async created() {
-    const userData = await localStorage.getItem("assignmentFormUser")
-    if (userData) {
-      this.userData = JSON.parse(userData)
-    }
-    const userDetails = await localStorage.getItem("assignmentFormUserDetails")
-    if (userDetails) {
-      this.userDetails = JSON.parse(userDetails)
-    }
+    this.userData = await getLocalStorageItem()
   }
 }
 </script>

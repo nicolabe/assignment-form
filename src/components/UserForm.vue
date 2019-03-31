@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import { setLocalStorageItem } from "../utils/localStorage"
 export default {
   name: "UserForm",
   props: {
@@ -83,24 +84,28 @@ export default {
   },
   methods: {
     onSubmit() {
-      if (this.extended) {
-        const validationMessage = this.validateForm()
-        if (validationMessage) {
-          this.$emit("notification", {message: "Valiation failed: " + validationMessage, error: true})
-          return false;
-        }
-        localStorage.assignmentFormUserDetails = JSON.stringify({
-          address: this.address,
-          gender: this.gender,
-          purpose: this.purpose,
-          activities: this.activities
-        })
+      const validationMessage = this.validateForm()
+      if (validationMessage) {
+        this.$emit("notification", {message: "Valiation failed: " + validationMessage, error: true})
+        return false;
       }
-      localStorage.assignmentFormUser = JSON.stringify({
+      let userData = {
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email
-      });
+      }
+      if (this.extended) {
+        userData = {
+          ...userData,
+          details: {
+            address: this.address,
+            gender: this.gender,
+            purpose: this.purpose,
+            activities: this.activities
+          }
+        }
+      }
+      setLocalStorageItem(userData)
       const message = this.extended ? "User successfully updated" : "User successfully created";
       this.$emit("notification", {message: message, error: false});
 
@@ -111,14 +116,16 @@ export default {
       }
     },
     validateForm() {
-      if (this.address.length > 50) {
-        return "Address cannot be more than 50 characters"
-      }
-      if (!this.purpose) {
-        return "Purpose must be selected"
-      }
-      if (this.activities.length === 0 || this.activities.length > 2) {
-        return "You have to select atleast one activity, but no more than two"
+      if (this.extended) {
+        if (this.address.length > 50) {
+          return "Address cannot be more than 50 characters"
+        }
+        if (!this.purpose) {
+          return "Purpose must be selected"
+        }
+        if (this.activities.length === 0 || this.activities.length > 2) {
+          return "You have to select atleast one activity, but no more than two"
+        }
       }
       return ""
     }
