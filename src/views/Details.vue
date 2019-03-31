@@ -13,6 +13,7 @@
 
 <script>
 import UserForm from '../components/UserForm.vue'
+import { getLocalStorageItem } from "../utils/localStorage"
 
 export default {
  name: 'Details',
@@ -30,10 +31,7 @@ export default {
     }
   },
   async created() {
-    const userData = await localStorage.getItem("assignmentFormUser")
-    if (userData) {
-      this.userData = JSON.parse(userData)
-    }
+    this.userData = await getLocalStorageItem();
   }
 }
 </script>

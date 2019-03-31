@@ -101,15 +101,12 @@ export default {
         lastName: this.lastName,
         email: this.email
       });
-      if (this.extended) {
-        this.$emit("notification", {message: "User succesfully updated", error: false});
-      } else {
-        this.$emit("notification", {message: "User succesfully created", error: false});
-      }
+      const message = this.extended ? "User successfully updated" : "User successfully created";
+      this.$emit("notification", {message: message, error: false});
+
       if (this.$route.name === "register") {
         this.$router.push({name: "details"})
-      }
-      if (this.$route.name === "details") {
+      } else if (this.$route.name === "details") {
         this.$router.push({name: "summary"})
       }
     },

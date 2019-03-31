@@ -15,6 +15,7 @@
 
 <script>
 import UserForm from '../components/UserForm.vue'
+import { getLocalStorageItem } from "../utils/localStorage"
 import axios from "axios"
 
 export default {
@@ -36,6 +37,9 @@ export default {
       .then(res => this.userData = res.data)
       .catch(error => this.$emit("notification", error))
     }
+  },
+  async created() {
+    this.userData = await getLocalStorageItem()
   }
 }
 </script>

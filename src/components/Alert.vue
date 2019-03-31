@@ -15,6 +15,11 @@ export default {
     close() {
       this.$emit("closeAlert")
     }
+  },
+  created() {
+    setTimeout(() => {
+      this.$emit("closeAlert")
+    }, 15000)
   }
 }
 </script>
