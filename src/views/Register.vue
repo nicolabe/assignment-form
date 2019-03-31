@@ -35,7 +35,7 @@ export default {
     loadUserData() {
       axios.get("/api/user")
       .then(res => this.userData = res.data)
-      .catch(error => this.$emit("notification", error))
+      .catch(error => this.$emit("notification", {message: error, error: true}))
     }
   },
   async created() {

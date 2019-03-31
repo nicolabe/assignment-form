@@ -125,9 +125,11 @@ export default {
   },
   watch: {
     userData: function(newVal) {
-      this.firstName = newVal.firstName;
-      this.lastName = newVal.lastName;
-      this.email = newVal.email;
+      if (newVal) {
+        this.firstName = newVal.firstName;
+        this.lastName = newVal.lastName;
+        this.email = newVal.email;
+      }
     }
   }
 }
